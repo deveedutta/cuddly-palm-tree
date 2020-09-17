@@ -117,14 +117,14 @@ class Home extends React.Component {
 }
 
 Home.propTypes = {
-  // users: PropTypes.array,  
+  users: PropTypes.array,  
   // posts: PropTypes.array
-  users: PropTypes.arrayOf(PropTypes.shape({
-    "userId": PropTypes.number.isRequired,
-    "id": PropTypes.number.isRequired,
-    "title": PropTypes.string.isRequired,
-    "body": PropTypes.string.isRequired
-  }).isRequired).isRequired,
+  // users: PropTypes.arrayOf(PropTypes.shape({
+  //   "userId": PropTypes.number.isRequired,
+  //   "id": PropTypes.number.isRequired,
+  //   "title": PropTypes.string.isRequired,
+  //   "body": PropTypes.string.isRequired
+  // }).isRequired).isRequired,
   
   posts: PropTypes.arrayOf(PropTypes.shape({
     "postId": PropTypes.number,
