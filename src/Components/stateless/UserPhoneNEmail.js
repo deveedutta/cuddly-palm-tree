@@ -3,14 +3,14 @@ import React from 'react';
 const UserPhoneNEmail = ({ user }) => {
   if (user) {
     return ( 
-      <small>
-        Phone: {user.phone}
+      <div>        
+        <small>📞 Phone: {user.phone}</small>
         <br/>
-        email: {user.email}
+        <small>📟 email: {user.email}</small>
         <br/>
-        website: <a href={user.website} about="_blank">{user.website}</a>
+        <small>💻 website: <a href={user.website} about="_blank">{user.website}</a></small>
         <br/>
-      </small>
+      </div>
     )
   } else {
     return '';

@@ -13,6 +13,7 @@ import { UserActions, PostsActions } from '../Actions';
 
 // Components
 import StatelessApp from '../Components/stateless/StatelessApp';
+import UserThumbnail from '../Components/stateless/UserThumbnail';
 import UserAddress from '../Components/stateless/UserAddress';
 import UserAddressGeo from '../Components/stateless/UserAddressGeo';
 import UserCompany from '../Components/stateless/UserCompany';
@@ -33,11 +34,10 @@ class Home extends React.Component {
     const elems1 = this.props.users.map(user => {
       return (
         <li key={user.id}>
-          <h4>{user.name}</h4>
-          <h3>{user.username}</h3>
-          <UserAddress user={user} />
-          <UserAddressGeo user={user} />           
+          <UserThumbnail user={user} />
           <UserPhoneNEmail user={user} />
+          <UserAddress user={user} />
+          <UserAddressGeo user={user} />
           <UserCompany user={user} />
         </li>
       );

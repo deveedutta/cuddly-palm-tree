@@ -5,9 +5,12 @@ const UserCompany = ({ user }) => {
     return (
       <small>
         <p>
-          <span>name:  {user.company.name}</span>,
-          <span>catchPhrase:  {user.company.catchPhrase}</span>,
-          <span>bs:  {user.company.bs}</span>,
+          <span>🏭</span>
+          <span>name:  {user.company.name}</span>
+          <br/>
+          <span>🐱 cat...ch phrase:  {user.company.catchPhrase}</span>,
+          <br/>
+          <span>🎼 bs:  {user.company.bs}</span>,
         </p>
       </small>
     )
