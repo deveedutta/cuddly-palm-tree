@@ -5,14 +5,21 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import axios from 'axios';
 
-
 // Store
 import store from "../Store/";
 
 // Actions
 import { UserActions, PostsActions } from '../Actions';
 
+// Components
 import StatelessApp from '../Components/stateless/StatelessApp';
+import UserAddress from '../Components/stateless/UserAddress';
+import UserAddressGeo from '../Components/stateless/UserAddressGeo';
+import UserCompany from '../Components/stateless/UserCompany';
+import UserPhoneNEmail from '../Components/stateless/UserPhoneNEmail';
+import PostListElement from '../Components/stateless/PostListElement';
+
+
 import './Home.css';
 
 class Home extends React.Component {
@@ -28,41 +35,10 @@ class Home extends React.Component {
         <li key={user.id}>
           <h4>{user.name}</h4>
           <h3>{user.username}</h3>
-          <small>email: {user.email}</small>
-          {
-            user.address
-            ? <p>
-                 <span>street:  {user.address.street}</span>,
-                 <span>suite:   {user.address.suite}</span>,
-                 <span>city:    {user.address.city}</span>,
-                 <span>zipcode:  {user.address.zipcode}</span>,
-             </p>
-            : ''
-          }
-          {
-             user.address.geo
-             ? <code>
-                 <span>lat:  {user.address.geo.lat}</span>,
-                 <span>lng:  {user.address.geo.lng}</span>,
-               </code>
-             : ''
-          }
-          <small>Phone: {user.phone}</small>
-          <br/>
-          <small>website: <a href={user.website} about="_blank">{user.website}</a></small>
-          <br/>
-          <small>
-            company:
-            {
-              user.company
-              ? <p>
-                <span>name:  {user.company.name}</span>,
-                <span>catchPhrase:  {user.company.catchPhrase}</span>,
-                <span>bs:  {user.company.bs}</span>,
-              </p>
-              : ''
-            }
-          </small>
+          <UserAddress user={user} />
+          <UserAddressGeo user={user} />           
+          <UserPhoneNEmail user={user} />
+          <UserCompany user={user} />
         </li>
       );
     });
@@ -70,12 +46,7 @@ class Home extends React.Component {
 
     const elems2 = this.props.posts.map(post => {
       return (
-        <li key={post.id}>
-          <h4>{post.title}</h4>
-          <small>UID: {post.userId}</small>
-          <p>{post.body}</p>
-          <small>Item ID: {post.id}</small>
-        </li>
+        <PostListElement post={post} />
       );
     });
 
